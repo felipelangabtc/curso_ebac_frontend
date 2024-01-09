@@ -16,16 +16,6 @@ header {
     margin-bottom: 40px;
 }
 
-header img {
-    height: 36px;
-    margin-right: 16px;
-}
-
-header h1 {
-    font-size: 40px;
-    font-weight: bold;
-}
-
 .container {
     max-width: 960px;
     width: 100%;
@@ -59,12 +49,15 @@ form button {
     padding: 8px;
 }
 
-ul li {
-    display: flex; 
-    padding: 8px;
-    justify-content: center;
+ul {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 24px;
+    font-size: 20px;
 }
 
-.realizada {
+.riscarTarefa {
     text-decoration: line-through;
+    font-style: none;
 }

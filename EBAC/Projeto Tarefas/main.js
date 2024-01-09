@@ -1,37 +1,15 @@
-const form = document.getElementById('form-lista');
-const tarefa = [];
+$(document).ready(function() {
+    $('form').on('submit', function(e) {
+        e.preventDefault();
+        const nomeTarefa = $('input').val();
+        const novaTarefa = $(`<li>${nomeTarefa}</li>`)
 
-let linhas = '';
+        $(novaTarefa).appendTo('ul')
+        $('input').val('')
+    })
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    adicionaTarefa();
-    atualizaLista();
-});
-
-function adicionaTarefa() {
-    const inputTarefa = document.getElementById('nome-tarefa');
-
-    tarefa.push(inputTarefa.value); 
-
-    let linha = ''; 
-    linha += `<li>${inputTarefa.value}</li>`;
-
-    linhas += linha;
-    
-    inputTarefa.value = '';
-}
-
-function atualizaLista() {
-    const listaTarefas = document.querySelector('ul');
-    listaTarefas.innerHTML = linhas;
-
-    listaTarefas.addEventListener('click', function(e) {
-        if(e.target.classList.contains('realizada')) {
-            e.target.classList.remove('realizada');
-        } else {
-            e.target.classList.add('realizada');
-        }
-    }) 
-}
+    $('ul').on('click', 'li', function(e) {
+        e.preventDefault();
+        $(this).toggleClass('riscarTarefa') 
+    })
+})
